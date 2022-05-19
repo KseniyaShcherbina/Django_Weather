@@ -24,10 +24,14 @@
             <div class="col-3 offset-1">
                 <h1>Информация</h1>
                 <div class="alert alert-success">
-                    <div class="alert alert-success">
-                        <b>Город</b>{{ info.city }}<br>
-                        <b>Температура:</b>{{ info.temp }}<sup>0</sup><br>
-                        <img src="http://openweathermap.org/img/w/{{}}.png" alt="Фото погоды" class="img-thunbnail"
+                    <div class="row">
+                        <div class="col-9">
+                            <b>Город: </b>{{ info.city }}<br>
+                            <b>Температура: </b>{{ info.temp }}<sup>0</sup><br>
+                        </div>
+                        <div class="col-2 offset-1">
+                            <img src="http://openweathermap.org/img/w/{{ info.icon }}.png" alt="Фото погоды">
+                        </div>
                     </div>
                 </div>
             </div>

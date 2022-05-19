@@ -6,7 +6,7 @@ def index(request):
     url = "https://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid=" + appid
 
     city = 'Minsk'
-    res = requests.get(url.format(city))
+    res = requests.get(url.format(city)).json()
 
     city_info = {
         'city' : city,
