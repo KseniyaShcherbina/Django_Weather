@@ -23,6 +23,8 @@
             </div>
             <div class="col-3 offset-1">
                 <h1>Информация</h1>
+
+                {% for info in all_info %}
                 <div class="alert alert-success">
                     <div class="row">
                         <div class="col-9">
@@ -34,6 +36,7 @@
                         </div>
                     </div>
                 </div>
+                {% endfor %}
             </div>
         </div>
     </div>
