@@ -40,3 +40,19 @@ class LoginView(APIView):
         return response
 
 
+class UserView(APIView):
+    def get(self, request):
+        token = request.COOKIES.get('jwt')
+
+        if not token:
+            raise AuthenticationFailed('Не прошедший проверку подлинности')
+        try:
+            payload = jwt.decode(token, 'secret', algorithm=['HS256'])
+
+        except jwt.ExpiredSignatureError:
+            raise AuthenticationFailed('Не прошедший проверку подлинности')
+
+        user = User.objects.filter(id=payload['id']).first()
+
+        serializer = UserSerializer(user)
+        return Response(serializer.data)
